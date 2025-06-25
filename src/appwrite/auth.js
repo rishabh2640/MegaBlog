@@ -24,7 +24,7 @@ export class AuthService {
         this.client
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
-        this.account = new Account(this.client)
+        this.account = new Account(this.client);
     }
 
     // (destructed the method's value ) whoever will use this createAccount method will give email, password, name in an object form
@@ -61,7 +61,7 @@ export class AuthService {
 
     async logout() {
         try {
-            return await this.account.deleteSessions();
+            await this.account.deleteSessions();
         } catch (error) {
             console.log("Appwrite service :: logout :: error", error)
         }
